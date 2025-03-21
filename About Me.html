@@ -76,8 +76,11 @@
                     <li><a href="#products" class="nav-link">Sản phẩm</a></li>
                     <li><a href="#languages" class="nav-link">Ngôn ngữ</a></li>
                     <li><a href="#software" class="nav-link">Phần mềm</a></li>
+                    <li><a href="assets/CV Đào Duy Khương - Inter IT-TopCV.vn-1.pdf" class="nav-link" target="_blank">📄 Xem CV</a></li>
+
                 </ul>
             </nav>
+            
 
             <!-- Home Content -->
             <div id="home" class="content-section active-content">
@@ -123,27 +126,32 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    document.querySelectorAll('.content-section').forEach(section => {
-                        section.classList.remove('active-content');
-                    });
-                    
-                    this.classList.add('active');
-                    const targetId = this.getAttribute('href').replace('#', '');
-                    const targetSection = document.getElementById(targetId);
-                    
-                    // Thêm lớp để kích hoạt hiệu ứng cuộn
-                    setTimeout(() => {
-                        targetSection.classList.add('active-content');
-                    }, 50);
-                });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Kiểm tra xem link có phải là link mở file PDF không
+            if (this.getAttribute('href').endsWith('.pdf')) {
+                return; // Không ngăn chặn hành vi mặc định
+            }
+            
+            e.preventDefault(); // Chỉ ngăn chặn với các link khác
+            
+            navLinks.forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active-content');
             });
+            
+            this.classList.add('active');
+            const targetId = this.getAttribute('href').replace('#', '');
+            const targetSection = document.getElementById(targetId);
+            
+            setTimeout(() => {
+                targetSection.classList.add('active-content');
+            }, 50);
+        });
+    });
+     
 
             // Xử lý nút Contact
             document.querySelector('.contact-btn').addEventListener('click', function(e) {

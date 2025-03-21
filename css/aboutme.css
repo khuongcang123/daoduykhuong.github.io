@@ -229,3 +229,10 @@ h2 {
         font-size: 0.9em;
     }
 }
+.nav-link[download] {
+    color: #e74c3c;
+    font-weight: bold;
+}
+.nav-link[download]:hover {
+    color: #c0392b;
+}
