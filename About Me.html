@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đào Duy Khương - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/aboutme.css">
+    <style>
+        /* Hiệu ứng cuộn từ phải qua */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .content-section {
+            display: none;
+            animation: slideInRight 0.5s ease-out; /* Hiệu ứng cuộn từ phải qua */
+        }
+
+        .active-content {
+            display: block;
+        }
+
+        .active {
+            color: #3498db;
+        }
+
+        .service-card {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <img src="img/anh dai dien.jpg" alt="anh" class="profile-img">
+            <h1>ĐÀO DUY KHƯƠNG</h1>
+            <p>Thực tập sinh Lập trình Mobile</p>
+            
+            <div class="personal-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-calendar-days"></i> <strong>20/04/2002</strong>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-user"></i> <strong>Nam</strong>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i> <strong>0899805746</strong>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i> <strong>daoduykhuong66@gmail.com</strong>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i> <strong>Quận Cẩm Lệ, TP Đà Nẵng</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <nav class="navigation-bar">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                    <li><a href="#products" class="nav-link">Sản phẩm</a></li>
+                    <li><a href="#languages" class="nav-link">Ngôn ngữ</a></li>
+                    <li><a href="#software" class="nav-link">Phần mềm</a></li>
+                </ul>
+            </nav>
+
+            <!-- Home Content -->
+            <div id="home" class="content-section active-content">
+                <h2>Xin Chào!!!</h2>
+                <div class="service-card">
+                    <p>Tôi là Đào Duy Khương, hiện đang là sinh viên ngành Phát triển Ứng dụng Di động tại FPT Polytechnic Đà Nẵng. Với niềm đam mê lập trình và kinh nghiệm làm việc với các dự án Android sử dụng ngôn ngữ Java, tôi luôn nỗ lực học hỏi và cập nhật các công nghệ mới. Tôi là người có tinh thần trách nhiệm cao, luôn chủ động trong công việc và sẵn sàng đối mặt với những thử thách. Tôi cũng có khả năng làm việc nhóm tốt, biết lắng nghe và tiếp thu ý kiến từ đồng nghiệp. Tôi mong muốn được phát triển bản thân trong môi trường thực tế và đóng góp tích cực vào các dự án của công ty.</p>
+                </div>
+            </div>
+
+            <!-- Products Content -->
+            <div id="products" class="content-section">
+                <h2>Sản Phẩm</h2>
+                <div class="service-card">
+                    <p>• Ứng dụng quản lý chi tiêu cá nhân (Java/Android)<br>
+                       • Game Puzzle sử dụng Kotlin<br>
+                       • Website bán hàng điện tử (ReactJS)</p>
+                </div>
+            </div>
+
+            <!-- Languages Content -->
+            <div id="languages" class="content-section">
+                <h2>Ngôn Ngữ</h2>
+                <div class="service-card">
+                    <p>• Java (Nâng cao)<br>
+                       • Kotlin (Trung cấp)<br>
+                       • JavaScript (Cơ bản)<br>
+                       • XML (Thành thạo)</p>
+                </div>
+            </div>
+
+            <!-- Software Content -->
+            <div id="software" class="content-section">
+                <h2>Phần Mềm</h2>
+                <div class="service-card">
+                    <p>• Android Studio<br>
+                       • Visual Studio Code<br>
+                       • Figma<br>
+                       • GitHub</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.remove('active-content');
+                    });
+                    
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href').replace('#', '');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    // Thêm lớp để kích hoạt hiệu ứng cuộn
+                    setTimeout(() => {
+                        targetSection.classList.add('active-content');
+                    }, 50);
+                });
+            });
+
+            // Xử lý nút Contact
+            document.querySelector('.contact-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Liên hệ qua email: daoduykhuong66@gmail.com');
+            });
+        });
+    </script>
+</body>
+</html>

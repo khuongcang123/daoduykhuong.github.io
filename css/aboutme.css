@@ -1,0 +1,207 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        /* Left Panel */
+        .left-panel {
+            width: 35%;
+            padding: 40px;
+            background: #2a2a2a;
+            color: white;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: #ddd;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .personal-info {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item i {
+            margin-right: 8px;
+            color: #ffffff;
+        }
+
+        /* Right Panel */
+        .right-panel {
+            width: 65%;
+            padding: 40px;
+        }
+
+        /* Navigation */
+        .navigation-bar {
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .navigation-bar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2a2a2a;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .nav-link.active {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: #007bff;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active-content {
+            display: block;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px 5px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .download-btn {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .contact-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        h2 {
+            color: #000000;
+            font-family: 'Lobster', cursive;
+            font-size: 3em;
+            text-align: left;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .navigation-bar ul {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .nav-link {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+        }
+        /* Hiệu ứng cuộn từ phải qua */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.content-section {
+    display: none;
+    animation: slideInRight 0.5s ease-out; /* Hiệu ứng cuộn từ phải qua */
+}
+
+.active-content {
+    display: block;
+}
+
