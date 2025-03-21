@@ -20,11 +20,13 @@ body, html {
     height: 80vh;
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .sidebar {
     width: 200px;
     background: #305d7a;
+    flex-shrink: 0;
 }
 
 .content {
@@ -105,14 +107,13 @@ hr {
 
 .arrow-container {
     position: absolute;
-    bottom: 20px; /* Điều chỉnh vị trí nút mũi tên từ dưới lên */
-    left: 50%; /* Căn giữa theo chiều ngang */
-    transform: translateX(-50%); /* Đảm bảo căn giữa hoàn hảo */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .arrow-btn {
     display: inline-block;
-    
     color: rgb(45, 45, 45);
     border-radius: 50%;
     width: 50px;
@@ -126,7 +127,6 @@ hr {
 
 .arrow-btn:hover {
     transform: scale(1.1);
-    
 }
 
 .next-section {
@@ -140,4 +140,62 @@ hr {
     font-size: 2em;
     color: #305d7a;
     font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .title h1, .title h2 {
+        font-size: 2em;
+    }
+
+    .year {
+        position: static;
+        margin: 10px 0;
+        text-align: center;
+        writing-mode: horizontal-tb;
+    }
+
+    .arrow-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 38px;
+    }
+
+    .next-section {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1, .title h2 {
+        font-size: 1.5em;
+    }
+
+    .arrow-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        line-height: 33px;
+    }
+
+    .selected-word {
+        padding: 3px 10px;
+        gap: 5px;
+        font-size: 0.9em;
+    }
 }
