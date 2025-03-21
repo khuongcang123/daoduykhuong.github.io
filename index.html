@@ -1,32 +1,175 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio của Đào Duy Khương</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Adlard - Portfolio</title>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">-->>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
+            background: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
         }
-        h1 {
-            color: #333;
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
-        p {
-            color: #555;
+
+        /* Left Panel */
+        .left-panel {
+            width: 35%;
+            padding: 40px;
+            background: #2a2a2a;
+            color: white;
         }
-        a {
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            background: #ddd; /* Placeholder color */
+        }
+
+        .personal-info {
+            margin: 20px 0;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        /* Right Panel */
+        .right-panel {
+            width: 65%;
+            padding: 40px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px 5px;
+            border-radius: 25px;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .download-btn {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .contact-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        h2 {
             color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Xin chào! Tôi là Đào Duy Khương</h1>
-    <p>Sinh viên ngành Phát triển Ứng dụng Di động tại FPT Polytechnic Đà Nẵng</p>
-    <p>Đam mê lập trình Android, phát triển web, và chơi cầu lông.</p>
-    <h3>Liên hệ:</h3>
-    <p>Email: khuongdaoduy@example.com</p>
-    <p>GitHub: <a href="https://github.com/daoduykhuong" target="_blank">github.com/daoduykhuong</a></p>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <img src="css/480575901_2112767825842435_7468814436686173316_n (1).jpg" alt="Ryan Adlard" class="profile-img">
+            <h1>ĐÀO DUY KHƯƠNG</h1>
+            <p>Web designer from USA, California</p>
+            
+            <div class="personal-info">
+                <div class="info-item">
+                    <strong>Age:</strong> 24
+                </div>
+                <div class="info-item">
+                    <strong>Residence:</strong> USA
+                </div>
+                <div class="info-item">
+                    <strong>Freelance:</strong> Available
+                </div>
+                <div class="info-item">
+                    <strong>Address:</strong> California, USA
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <h2>My Services</h2>
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Modern and mobile-ready</p>
+            </div>
+
+            <h2 style="margin-top: 40px;">About Me</h2>
+            <p>I have rich experience in web site design and building, also I am good at wordpress. I love to talk with you about our unique.</p>
+
+            <div style="margin-top: 50px;">
+                <a href="#" class="btn download-btn">DOWNLOAD CV</a>
+                <a href="#contact" class="btn contact-btn">CONTACT ME</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Thêm hiệu ứng mượt khi scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Xử lý sự kiện click cho nút contact
+        document.querySelector('.contact-btn').addEventListener('click', function() {
+            alert('Please contact me at: your.email@example.com');
+        });
+    </script>
 </body>
 </html>
